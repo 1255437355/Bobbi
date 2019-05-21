@@ -125,7 +125,7 @@ export default {
       activeIndex: -1,
       activeChildren: [],
       limitFrom: 0,
-      limitTo: 3
+      limitTo: 4
     };
   },
   methods: {

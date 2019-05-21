@@ -47,8 +47,9 @@ var LoadingUI = (function (_super) {
         this.textField = new egret.TextField();
         this.addChild(this.textField);
         this.textField.x = 0;
-        this.textField.y = 0;
-        this.textField.fontFamily = 'Avenir Next, -apple-system, Noto Sans, Helvetica Neue, Helvetica, Nimbus Sans L, Arial, Liberation Sans, PingFang SC, Hiragino Sans GB, Noto Sans CJK SC, Source Han Sans SC, Source Han Sans CN, Microsoft YaHei, Wenquanyi Micro Hei, WenQuanYi Zen Hei, ST Heiti, SimHei, WenQuanYi Zen Hei Sharp, sans-serif';
+        this.textField.y = 100;
+        this.textField.fontFamily =
+            'Avenir Next, -apple-system, Noto Sans, Helvetica Neue, Helvetica, Nimbus Sans L, Arial, Liberation Sans, PingFang SC, Hiragino Sans GB, Noto Sans CJK SC, Source Han Sans SC, Source Han Sans CN, Microsoft YaHei, Wenquanyi Micro Hei, WenQuanYi Zen Hei, ST Heiti, SimHei, WenQuanYi Zen Hei Sharp, sans-serif';
         this.textField.width = 1334;
         this.textField.height = 750;
         this.textField.textAlign = egret.HorizontalAlign.CENTER;

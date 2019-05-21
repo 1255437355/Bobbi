@@ -407,26 +407,26 @@ const store = new Vuex.Store({
             },
           ],
           start: {
-            text: 'Play the Bobbi Brown City Adventures Game<br/>and win your exclusive gift',
+            text: 'Play the City Adventures Game <br/> and receive a gift',
             button: 'PLAY NOW'
           },
           products: [{
               src: require('../assets/index/product-newyork.jpg'),
-              title: 'DESTINATION:BEAUTY<br/>NEW YORK PALETTE',
+              title: 'DESTINATION: BEAUTY<br/>NEW YORK PALETTE',
               desc: 'With a golden glow look, the Destination: Beauty New York Edition reflects the staples of American Beauty: vibrancy, enthusiasm, and on-the-go natural glow.',
               button: 'SHOP NOW',
               url: 'newyork'
             },
             {
               src: require('../assets/index/product-seoul.jpg'),
-              title: 'DESTINATION:BEAUTY<br/>SEOUL PALETTE',
+              title: 'DESTINATION: BEAUTY<br/>SEOUL PALETTE',
               desc: 'Multi-faceted makeup palette with a shade lineup that exemplifies the youthful exuberance and bold colors of Seoul. Palette features rosy peach shades to dial up or down looks.',
               button: 'SHOP NOW',
               url: 'seoul'
             },
             {
               src: require('../assets/index/product-london.jpg'),
-              title: 'DESTINATION:BEAUTY<br/>LONDON PALETTE',
+              title: 'DESTINATION: BEAUTY<br/>LONDON PALETTE',
               desc: 'Exemplifying the essence of understated English beauty, this color palette incorporates a shade range that speaks of rosy cheeks with hints of smokey violet.',
               button: 'SHOP NOW',
               url: 'london'
@@ -439,7 +439,7 @@ const store = new Vuex.Store({
               src: require('../assets/index/product-london.jpg'),
               url: '',
               subTitle: 'BOBBI BROWN',
-              title: 'DESTINATION:BEAUTY<br/>LONDON PALETTE',
+              title: 'DESTINATION: BEAUTY<br/>LONDON PALETTE',
               button: 'SHOP NOW'
             },
             howtoSrc: require('../assets/tocity/london/howto.png'),
@@ -520,7 +520,7 @@ const store = new Vuex.Store({
               src: require('../assets/index/product-seoul.jpg'),
               url: '',
               subTitle: 'BOBBI BROWN',
-              title: 'DESTINATION:BEAUTY<br/>SEOUL PALETTE',
+              title: 'DESTINATION: BEAUTY<br/>SEOUL PALETTE',
               button: 'SHOP NOW'
             },
             howtoSrc: require('../assets/tocity/seoul/howto.png'),
@@ -601,7 +601,7 @@ const store = new Vuex.Store({
               src: require('../assets/index/product-newyork.jpg'),
               url: '',
               subTitle: 'BOBBI BROWN',
-              title: 'DESTINATION:BEAUTY<br/>NEW YORK PALETTE',
+              title: 'DESTINATION: BEAUTY<br/>NEW YORK PALETTE',
               button: 'SHOP NOW'
             },
             howtoSrc: require('../assets/tocity/newyork/howto.png'),

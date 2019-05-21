@@ -28,27 +28,27 @@
 //////////////////////////////////////////////////////////////////////////////////////
 
 class LoadingUI extends egret.Sprite implements RES.PromiseTaskReporter {
+  public constructor() {
+    super();
+    this.createView();
+  }
 
-    public constructor() {
-        super();
-        this.createView();
-    }
+  private textField: egret.TextField;
 
-    private textField: egret.TextField;
+  private createView(): void {
+    this.textField = new egret.TextField();
+    this.addChild(this.textField);
+    this.textField.x = 0;
+    this.textField.y = 100;
+    this.textField.fontFamily =
+      'Avenir Next, -apple-system, Noto Sans, Helvetica Neue, Helvetica, Nimbus Sans L, Arial, Liberation Sans, PingFang SC, Hiragino Sans GB, Noto Sans CJK SC, Source Han Sans SC, Source Han Sans CN, Microsoft YaHei, Wenquanyi Micro Hei, WenQuanYi Zen Hei, ST Heiti, SimHei, WenQuanYi Zen Hei Sharp, sans-serif';
+    this.textField.width = 1334;
+    this.textField.height = 750;
+    this.textField.textAlign = egret.HorizontalAlign.CENTER;
+    this.textField.verticalAlign = egret.VerticalAlign.MIDDLE;
+  }
 
-    private createView(): void {
-        this.textField = new egret.TextField();
-        this.addChild(this.textField);
-        this.textField.x = 0;
-        this.textField.y = 0;
-        this.textField.fontFamily = 'Avenir Next, -apple-system, Noto Sans, Helvetica Neue, Helvetica, Nimbus Sans L, Arial, Liberation Sans, PingFang SC, Hiragino Sans GB, Noto Sans CJK SC, Source Han Sans SC, Source Han Sans CN, Microsoft YaHei, Wenquanyi Micro Hei, WenQuanYi Zen Hei, ST Heiti, SimHei, WenQuanYi Zen Hei Sharp, sans-serif';
-        this.textField.width = 1334;
-        this.textField.height = 750;
-        this.textField.textAlign = egret.HorizontalAlign.CENTER;
-        this.textField.verticalAlign = egret.VerticalAlign.MIDDLE;
-    }
-
-    public onProgress(current: number, total: number): void {
-        this.textField.text = `Loading...${current}/${total}`;
-    }
+  public onProgress(current: number, total: number): void {
+    this.textField.text = `Loading...${current}/${total}`;
+  }
 }

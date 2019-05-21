@@ -142,6 +142,7 @@ var Main = (function (_super) {
     Main.prototype.createGameScene = function (score, that) {
         //let test = document.getElementById('test');
         //test.style.color = 'white';
+        document.getElementById('mask').style.display = 'none';
         console.log(document.querySelector('ticket'));
         // 背景
         var sky = this.createBitmapByName('bg_jpg');
@@ -698,13 +699,18 @@ var Main = (function (_super) {
             }
             function touchEnd(e) {
                 distanceEnd = e.localX;
+                console.log(e);
                 if (distanceBegin - distanceEnd > 50) {
                     shopIN();
                 }
                 else if (distanceBegin - distanceEnd < -50) {
                 }
                 else {
-                    planIN(this);
+                    if (e.stageX >= 180 &&
+                        e.stageX <= 1160 &&
+                        e.stageY >= 500 &&
+                        e.stageY <= 560)
+                        planIN(this);
                 }
             }
             shop = this.createBitmapByName('shop_png');

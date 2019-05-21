@@ -121,10 +121,32 @@
 			padding: 0 20px;
 			text-align: center;
 		}
+
+		#mask {
+			width: 300px;
+			/* height: 100%; */
+			background: black;
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			margin-left: -150px;
+			margin-top: -80px;
+			z-index: 9999;
+			text-align: center;
+			display: flex;
+			align-items: center;
+		}
+
+		#mask>img {
+			width: 100%;
+		}
 	</style>
 </head>
 
 <body>
+	<div id="mask">
+		<img src="./resource//assets//loading.gif">
+	</div>
 	<div class="egret-player" data-entry-class="Main" data-orientation="landscape" data-scale-mode="showAll"
 		data-frame-rate="30" data-content-width="1334" data-content-height="750" data-multi-fingered="2"
 		data-show-fps="false" data-show-log="false" data-show-fps-style="x:0,y:0,size:12,textColor:0xffffff,bgAlpha:0.9">

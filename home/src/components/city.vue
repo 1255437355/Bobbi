@@ -28,22 +28,40 @@
       z-index: 1;
     }
   }
-  .close {
-    padding: 40px;
-    z-index: 999;
-    position: relative;
-  }
+}
+.close {
+  padding: 40px;
+  z-index: 999;
+  position: fixed;
+  left: 0;
+  top: 0;
 }
 * {
   touch-action: pan-y;
+}
+
+.arrow {
+  position: fixed;
+  top: 50%;
+  z-index: 9999;
+  img {
+    width: 80px;
+  }
+}
+.arrow_left {
+  left: 0;
+}
+
+.arrow_right {
+  right: 0;
+  transform: scale(-1);
 }
 </style>
 
 <template>
   <div>
-    <div class="mask" @touchmove.prevent @click="dump">
-      <img src="../assets/close.png" alt="" class="close" @click.native="closeModel">
-      <div class="dumpMask" @click="dump"></div>
+    <img src="../assets/close.png" alt class="close" @click="closeModel">
+    <div class="mask" @touchmove.prevent>
       <div
         v-for="(item,index) in cityInfo.guide"
         :key="index"
@@ -55,27 +73,32 @@
         <div
           class="img_warpper"
           :style="activeIndex===index?'left:0;right:0':index<activeIndex?'left:-100%;right:-100%':'left:100%;right:100%'"
-          @click.native="dump"
         >
           <img
             :src="item.wordSrc"
-            alt=""
+            alt
             v-if="item.wordSrc"
             class="imgItem"
             :style="
             'position:absolute;z-index:2;'+(item.wordTop?('top:'+item.wordTop+'px;'):('bottom:'+item.wordBottom+'px;'))+(item.wordLeft?('left:'+item.wordLeft+'px'):('right:'+item.wordRight+'px'))
             "
           >
-          <img :src="item.src" alt="" class="img_item">
+          <img :src="item.src" alt class="img_item">
         </div>
       </div>
+    </div>
+    <div class="arrow arrow_left" @click="prePage" v-if="activeIndex!==0">
+      <img src="../assets/tocity/back.png">
+    </div>
+    <div class="arrow arrow_right" @click="nextPage" v-if="activeIndex!==cityInfo.guide.length-1">
+      <img src="../assets/tocity/back.png">
     </div>
   </div>
 </template>
 
 <script type='text/ecmascript-6'>
-import store from '../store/store';
-import { mapState } from 'vuex';
+import store from "../store/store";
+import { mapState } from "vuex";
 export default {
   store,
   watch: {
@@ -87,20 +110,47 @@ export default {
     }
   },
   computed: {
-    ...mapState(['word'])
+    ...mapState(["word"])
   },
   data() {
     return {
       activeIndex: 0,
-      cityInfo: {}
+      cityInfo: {},
+      disabled: false
     };
   },
   methods: {
+    prePage() {
+      if (this.activeIndex === 0 || this.disabled) {
+        return;
+      }
+
+      this.activeIndex--;
+
+      this.disabled = true;
+      setTimeout(() => {
+        this.disabled = false;
+      }, 500);
+    },
+    nextPage() {
+      if (this.activeIndex >= this.cityInfo.guide.length - 1 || this.disabled) {
+        return;
+      }
+
+      this.activeIndex++;
+
+      this.disabled = true;
+      setTimeout(() => {
+        this.disabled = false;
+      }, 500);
+    },
     dump() {
-      this.$router.go(-1);
+      if (this.activeIndex === this.cityInfo.guide.length) {
+        this.$router.go(-1);
+      }
     },
     closeModel() {
-      console.log('close');
+      console.log("close");
       this.$router.back(-1);
     },
     touchStart(e) {
@@ -110,8 +160,10 @@ export default {
     },
     touchEnd(e) {
       e.preventDefault(); // 阻止默认事件
+
       // 记录结束位置
       this.endX = e.changedTouches[0].clientX;
+
       // 左滑
       if (this.startX - this.endX > 30) {
         if (this.activeIndex >= this.cityInfo.guide.length - 1) {
@@ -124,9 +176,9 @@ export default {
         this.startX === this.endX &&
         this.activeIndex === this.cityInfo.guide.length - 1
       ) {
-        this.$route.query.city === 'seoul'
-          ? this.$router.push('/paid?city=seoul')
-          : this.$router.push('/paid');
+        this.$route.query.city === "seoul"
+          ? this.$router.push("/paid?city=seoul")
+          : this.$router.push("/paid");
       }
       // 右滑
       if (this.startX - this.endX < -30) {

@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "yellow_round_png,white_round_png,black_round_png,yellow_png,white_png,black_png,bg_jpg,description_json,title_png,title_en_png,title_kr_png,music_png,red_light_png,green_out_light_png,red_out_light_png,yellow_out_light_png,rule_png,rule_en_png,rule_kr_png,game_over_png,game_over_kr_png,game_over_en_png,success_png,success_kr_png,success_en_png,result_png,result_kr_png,result_en_png,shop_png,shop_kr_png,shop_en_png,music_pause_png,click_mp3,p1_b_png,p1_g_png,p1_y_png",
+			"keys": "yellow_round_png,white_round_png,black_round_png,yellow_png,white_png,black_png,bg_jpg,description_json,title_png,title_en_png,title_kr_png,music_png,red_light_png,green_out_light_png,red_out_light_png,yellow_out_light_png,rule_png,rule_en_png,rule_kr_png,game_over_png,game_over_kr_png,game_over_en_png,success_png,success_kr_png,success_en_png,result_png,result_kr_png,result_en_png,shop_png,shop_kr_png,shop_en_png,music_pause_png,click_mp3,p1_b_png,p1_g_png,p1_y_png,loading_gif",
 			"name": "preload"
 		}
 	],
@@ -10,6 +10,11 @@
 			"url": "assets/p1-b.png",
 			"type": "image",
 			"name": "p1_b_png"
+		},
+		{
+			"url": "assets/loading.gif",
+			"type": "image",
+			"name": "loading_gif"
 		},
 		{
 			"url": "assets/p1-g.png",
