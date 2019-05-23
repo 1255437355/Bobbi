@@ -80,9 +80,8 @@ class Main extends egret.DisplayObjectContainer {
   private createGameScene(score, that) {
     //let test = document.getElementById('test');
     //test.style.color = 'white';
-    document.getElementById('mask').style.display = 'none';
 
-    console.log(document.querySelector('ticket'));
+    document.getElementById('mask').style.display = 'none';
 
     // 背景
     let sky = this.createBitmapByName('bg_jpg');
@@ -750,7 +749,6 @@ class Main extends egret.DisplayObjectContainer {
 
       function touchEnd(e) {
         distanceEnd = e.localX;
-        console.log(e);
 
         if (distanceBegin - distanceEnd > 50) {
           shopIN();
@@ -823,6 +821,9 @@ class Main extends egret.DisplayObjectContainer {
 
     function planIN(that) {
       document.getElementById('ticket').style.display = 'flex';
+
+      document.getElementById('egret-player').style.filter = 'blur(20px)';
+
       let msg = document.getElementById('ticket_msg');
       console.log(msg);
       let text;

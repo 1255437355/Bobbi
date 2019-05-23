@@ -303,11 +303,11 @@ const store = new Vuex.Store({
           },
         },
         paid: {
-          title: '下列区域免税店已支持线上预订<br/>点击按钮即刻拥有专属免税好物',
+          title: '专属免税好物现可线下购买或线上预订<br/>点击按钮立即开启探索',
           tips: [
             '在下列区域中选择即将前往的地区',
-            '点击即将前往的免税门店，即可跳转至官网预订页面',
-            '线上预订成功后，前往相应免税门店领取'
+            '线下购买的用户，可根据线下店铺位置，前往店内购买',
+            '线上预订的用户，可点击即将前往的免税店，跳转至官网进行预订，预订成功后前往相应门店领取'
           ],
           location: [{
               name: '亚太地区',
@@ -679,11 +679,11 @@ const store = new Vuex.Store({
           },
         },
         paid: {
-          title: 'Pre-order is now available at the<br/>following duty free stores.<br/>Click to instantly purchase your<br/>exclusive duty-free products online.',
+          title: 'Click to instantly purchase your exclusive duty-free products online or visit any Bobbi Brown duty free stores to receive special offers.',
           tips: [
             'Select your destination from the following regions.',
-            'Select the duty free store in your selected region and directly enter the official pre-order website.',
-            'Upon completion of your order, go to your designated duty free store to pick up your products.'
+            'For offline shoppers, select the duty free store in your selected region and visit the stores to purchase duty-free products.',
+            'For online shoppers, select the duty free store in your selected region and directly enter the official pre-order website. Upon completion of your order, go to your designated duty free store to pick up your products.'
           ],
           location: [{
               name: 'Asia Pacific',

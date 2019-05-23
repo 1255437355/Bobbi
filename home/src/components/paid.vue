@@ -5,8 +5,8 @@
   margin: 100px 50px 50px 50px;
   h1 {
     text-align: center;
-    font-size: 30px;
-    line-height: 60px;
+    font-size: 26px;
+    line-height: 2;
     margin: 0;
   }
 }
@@ -18,7 +18,6 @@
   li {
     font-size: 20px;
     line-height: 35px;
-    font-weight: 500;
     list-style: decimal;
   }
 }
@@ -34,9 +33,14 @@
     margin-bottom: 30px;
   }
   dt {
+    font-family: 'Avenir Next', -apple-system, 'Noto Sans', 'Helvetica Neue',
+      Helvetica, 'Nimbus Sans L', Arial, 'Liberation Sans', 'PingFang SC',
+      'Hiragino Sans GB', 'Noto Sans CJK SC', 'Source Han Sans SC',
+      'Source Han Sans CN', 'Microsoft YaHei', 'Wenquanyi Micro Hei',
+      'WenQuanYi Zen Hei', 'ST Heiti', SimHei, 'WenQuanYi Zen Hei Sharp',
+      sans-serif !important;
     width: 610px;
     line-height: 135px;
-    font-weight: bold;
     text-align: center;
     border: solid 2px black;
     font-size: 30px;
@@ -83,7 +87,7 @@
         :style="activeIndex===index?'top:0':'top:'+(index*165)+'px'"
         v-show="activeIndex===index||activeIndex===-1"
       >
-        <dt @click="chooseLocation(index,item)">{{item.name}}</dt>
+        <dt @click="chooseLocation(index,item)" ref="ref">{{item.name}}</dt>
         <dd v-for="(item,index) in item.children" :key="index">
           <a :href="item.url">{{item.name}}</a>
         </dd>
@@ -93,18 +97,24 @@
 </template>
 
 <script type='text/ecmascript-6'>
-import store from "../store/store.js";
-import { mapState } from "vuex";
+import store from '../store/store.js';
+import { mapState } from 'vuex';
 export default {
   store,
   computed: {
-    ...mapState(["word"])
+    ...mapState(['word'])
   },
   created() {
     this.fetchData();
   },
+  mounted() {
+    console.log('this.$refs.ref.style');
+    console.log((this.$refs.ref[0].style.fontFamily = 'SimHei'));
+
+    // alert(this.$refs.ref.style);
+  },
   watch: {
-    $route: "fetchData",
+    $route: 'fetchData',
     word: {
       handler(newData) {
         console.log(newData);
@@ -138,7 +148,7 @@ export default {
     },
     fetchData() {
       switch (this.$route.query.city) {
-        case "seoul":
+        case 'seoul':
           this.limitFrom = 3;
           this.limitTo = 4;
           break;

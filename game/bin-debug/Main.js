@@ -143,7 +143,6 @@ var Main = (function (_super) {
         //let test = document.getElementById('test');
         //test.style.color = 'white';
         document.getElementById('mask').style.display = 'none';
-        console.log(document.querySelector('ticket'));
         // 背景
         var sky = this.createBitmapByName('bg_jpg');
         var stageW = this.stage.stageWidth;
@@ -699,7 +698,6 @@ var Main = (function (_super) {
             }
             function touchEnd(e) {
                 distanceEnd = e.localX;
-                console.log(e);
                 if (distanceBegin - distanceEnd > 50) {
                     shopIN();
                 }
@@ -757,6 +755,7 @@ var Main = (function (_super) {
         }
         function planIN(that) {
             document.getElementById('ticket').style.display = 'flex';
+            document.getElementById('egret-player').style.filter = 'blur(20px)';
             var msg = document.getElementById('ticket_msg');
             console.log(msg);
             var text;
